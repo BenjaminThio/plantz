@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://flaora7eul1r"]
+
+[ext_resource type="Script" path="res://scripts/test.gd" id="2_bl13t"]
+[ext_resource type="Texture2D" uid="uid://c2i0kt5u8g4xa" path="res://sprites/flower_pot.png" id="2_iyx0m"]
+[ext_resource type="PackedScene" uid="uid://phr2l825txyb" path="res://instances/enchanted_glowing_particles.tscn" id="3_iyx0m"]
+
+[sub_resource type="Gradient" id="Gradient_errlg"]
+offsets = PackedFloat32Array(0, 0.5, 1)
+colors = PackedColorArray(1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bl13t"]
+gradient = SubResource("Gradient_errlg")
+
+[node name="Test" type="Node2D"]
+texture_filter = 1
+script = ExtResource("2_bl13t")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+texture_filter = 2
+offset_right = 320.0
+offset_bottom = 64.0
+texture = SubResource("GradientTexture2D_bl13t")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_left = 144.0
+offset_top = 72.0
+offset_right = 216.0
+offset_bottom = 136.0
+texture_normal = ExtResource("2_iyx0m")
+stretch_mode = 5
+
+[node name="Node2D" type="Node2D" parent="TextureButton"]
+position = Vector2(48, 32)
+
+[node name="EnchantedGlowingParticles" parent="TextureButton/Node2D" instance=ExtResource("3_iyx0m")]

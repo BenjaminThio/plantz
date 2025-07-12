@@ -1,0 +1,37 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="School Life"
+run/main_scene="res://scenes/garden.tscn"
+config/features=PackedStringArray("4.5")
+boot_splash/show_image=false
+
+[autoload]
+
+time="*res://utils/time.gd"
+
+[display]
+
+window/stretch/mode="canvas_items"
+
+[input]
+
+wheel_up={
+"deadzone": 0.2,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-3,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":8,"position":Vector2(168, 5),"global_position":Vector2(177, 51),"factor":1.0,"button_index":4,"canceled":false,"pressed":true,"double_click":false,"script":null)
+]
+}
+wheel_down={
+"deadzone": 0.2,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-3,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":16,"position":Vector2(196, 7),"global_position":Vector2(205, 53),"factor":1.0,"button_index":5,"canceled":false,"pressed":true,"double_click":false,"script":null)
+]
+}

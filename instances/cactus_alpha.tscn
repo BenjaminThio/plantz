@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dmnks7ok6kavt"]
+
+[ext_resource type="Texture2D" uid="uid://cy2b748sv8ca6" path="res://sprites/cactus/face.png" id="1_uclpr"]
+
+[node name="Cactus" type="Sprite2D"]
+texture_filter = 1
+texture = ExtResource("1_uclpr")

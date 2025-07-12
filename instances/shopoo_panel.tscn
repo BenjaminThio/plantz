@@ -1,0 +1,80 @@
+[gd_scene load_steps=6 format=3 uid="uid://bg35rlwthlgt8"]
+
+[ext_resource type="FontFile" uid="uid://vfrpe3dkrit5" path="res://fonts/fusion_pixel_10px_monospaced.otf" id="1_dtlko"]
+[ext_resource type="Texture2D" uid="uid://cbcxgf6sbipso" path="res://sprites/items/cactus_seed.png" id="1_gpyxy"]
+[ext_resource type="Script" path="res://scripts/shopoo.gd" id="1_rgsgw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rgsgw"]
+bg_color = Color(0.15625, 0.15625, 0.15625, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dtlko"]
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="Panel" type="Panel"]
+z_index = 2
+offset_left = 384.0
+offset_top = 128.0
+offset_right = 768.0
+offset_bottom = 512.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_rgsgw")
+script = ExtResource("1_rgsgw")
+metadata/_edit_vertical_guides_ = [576.0]
+metadata/_edit_horizontal_guides_ = [324.0]
+
+[node name="Title" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 128.0
+offset_right = 256.0
+offset_bottom = 64.0
+theme_override_fonts/font = ExtResource("1_dtlko")
+theme_override_font_sizes/font_size = 30
+text = "SHOPOO"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 64.0
+offset_right = 256.0
+offset_bottom = 192.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_dtlko")
+
+[node name="Seed" type="Sprite2D" parent="Panel"]
+texture_filter = 1
+position = Vector2(64, 64)
+scale = Vector2(10.6667, 10.6667)
+texture = ExtResource("1_gpyxy")
+
+[node name="BuyButton" type="Button" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 128.0
+offset_top = 208.0
+offset_right = 256.0
+offset_bottom = 272.0
+theme_override_fonts/font = ExtResource("1_dtlko")
+theme_override_font_sizes/font_size = 20
+text = "BUY $500"
+
+[node name="CancelButton" type="Button" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 128.0
+offset_top = 288.0
+offset_right = 256.0
+offset_bottom = 352.0
+theme_override_fonts/font = ExtResource("1_dtlko")
+theme_override_font_sizes/font_size = 20
+text = "Cancel"
+
+[connection signal="pressed" from="BuyButton" to="." method="buy"]
+[connection signal="pressed" from="CancelButton" to="." method="cancel"]

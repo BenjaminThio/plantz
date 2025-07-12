@@ -1,0 +1,401 @@
+[gd_scene load_steps=27 format=3 uid="uid://dsh1mw2yt2ohi"]
+
+[ext_resource type="Script" path="res://scripts/garden.gd" id="1_f5kbm"]
+[ext_resource type="Texture2D" uid="uid://bnormmqc3j21q" path="res://sprites/background.png" id="1_j2bb5"]
+[ext_resource type="Texture2D" uid="uid://dtd3l7c22mreq" path="res://sprites/dialogue_box.png" id="2_21fhi"]
+[ext_resource type="Texture2D" uid="uid://c2i0kt5u8g4xa" path="res://sprites/flower_pot.png" id="3_js7m7"]
+[ext_resource type="Texture2D" uid="uid://bt30a0jpeooa1" path="res://sprites/watering_can.png" id="5_d0o5p"]
+[ext_resource type="PackedScene" uid="uid://bsxw33uo4sdx5" path="res://instances/enchanted_glowing_particles.tscn" id="6_v6x8h"]
+[ext_resource type="Texture2D" uid="uid://dhoumawhiwdlm" path="res://sprites/shop.png" id="12_c4msi"]
+[ext_resource type="FontFile" uid="uid://vfrpe3dkrit5" path="res://fonts/fusion_pixel_10px_monospaced.otf" id="13_llbuk"]
+[ext_resource type="Texture2D" uid="uid://beioe6rbm2k6l" path="res://sprites/fertilizer_bag.png" id="14_fr55t"]
+[ext_resource type="Texture2D" uid="uid://8gtwejmmdawj" path="res://sprites/coin.png" id="15_3q564"]
+[ext_resource type="Texture2D" uid="uid://brgyj85vujjcd" path="res://sprites/shadow.png" id="16_1mbgh"]
+[ext_resource type="Texture2D" uid="uid://cuds2trjt1n5s" path="res://sprites/water_droplet.png" id="17_4fd86"]
+[ext_resource type="Texture2D" uid="uid://b75uv0qdwnsyl" path="res://sprites/dollar_sign.png" id="18_4yw7j"]
+[ext_resource type="Texture2D" uid="uid://bm3wi3atqwurl" path="res://sprites/gui/left_arrow.png" id="19_yudwb"]
+[ext_resource type="Texture2D" uid="uid://1bbfsxx5c2n1" path="res://sprites/gui/right_arrow.png" id="20_jmvh5"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_a3l3f"]
+lifetime_randomness = 0.01
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(2, 2, 1)
+angle_min = 1.07288e-05
+angle_max = 360.0
+orbit_velocity_min = 9.49949e-08
+orbit_velocity_max = 9.49949e-08
+gravity = Vector3(-9.8, 9.8, 0)
+linear_accel_min = 51.73
+linear_accel_max = 100.0
+scale_min = 5.0
+scale_max = 7.0
+color = Color(0, 1, 1, 1)
+
+[sub_resource type="FontVariation" id="FontVariation_fgq7g"]
+base_font = ExtResource("13_llbuk")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fgq7g"]
+bg_color = Color(0, 0, 0, 0.509804)
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f5kbm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gkkow"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d6b7c"]
+bg_color = Color(0, 0, 0, 0.509804)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g633s"]
+bg_color = Color(0, 0, 0, 0.509804)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gkkow"]
+bg_color = Color(0, 0, 0, 0.509804)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="FontVariation" id="FontVariation_rsooy"]
+base_font = ExtResource("13_llbuk")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_dtq4g"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_t445f"]
+
+[node name="Garden" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_f5kbm")
+metadata/_edit_vertical_guides_ = [576.0]
+metadata/_edit_horizontal_guides_ = [324.0]
+
+[node name="Background" type="TextureRect" parent="."]
+texture_filter = 1
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_j2bb5")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="DialogueBox" type="NinePatchRect" parent="."]
+visible = false
+offset_left = 660.0
+offset_top = 107.0
+offset_right = 970.0
+offset_bottom = 307.0
+texture = ExtResource("2_21fhi")
+patch_margin_left = 80
+patch_margin_top = 30
+patch_margin_right = 30
+patch_margin_bottom = 80
+
+[node name="FlowerPotTest" type="TextureButton" parent="."]
+visible = false
+offset_left = 498.0
+offset_top = 372.0
+offset_right = 655.0
+offset_bottom = 504.0
+texture_normal = ExtResource("3_js7m7")
+stretch_mode = 4
+flip_h = true
+metadata/_edit_use_anchors_ = true
+
+[node name="WateringCan" type="Sprite2D" parent="FlowerPotTest"]
+texture_filter = 1
+position = Vector2(334, -52)
+scale = Vector2(12, 12)
+texture = ExtResource("5_d0o5p")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="FlowerPotTest/WateringCan"]
+visible = false
+modulate = Color(1, 1, 1, 0.670588)
+position = Vector2(-9.99102, -7.49896)
+amount = 50
+lifetime = 2.0
+preprocess = 3.0
+speed_scale = 5.0
+explosiveness = 0.2
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_a3l3f")
+
+[node name="Shadow" type="Sprite2D" parent="FlowerPotTest"]
+position = Vector2(84, 35.5)
+scale = Vector2(12, 12.0313)
+texture = ExtResource("16_1mbgh")
+
+[node name="EnchantedGlowingParticles" parent="FlowerPotTest" instance=ExtResource("6_v6x8h")]
+visible = false
+z_index = 1
+position = Vector2(78, 76)
+
+[node name="LeftMarker" type="Marker2D" parent="."]
+position = Vector2(-157, 372)
+
+[node name="CenterMarker" type="Marker2D" parent="."]
+position = Vector2(498, 372)
+
+[node name="RightMarker" type="Marker2D" parent="."]
+position = Vector2(1152, 372)
+
+[node name="CoinsLabel" type="Label" parent="."]
+offset_left = 128.0
+offset_top = 35.0
+offset_right = 320.0
+offset_bottom = 125.0
+theme_override_fonts/font = SubResource("FontVariation_fgq7g")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_fgq7g")
+text = "$0"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="PhaseLabel" type="Label" parent="."]
+offset_top = 160.0
+offset_right = 150.0
+offset_bottom = 250.0
+theme_override_fonts/font = SubResource("FontVariation_fgq7g")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_fgq7g")
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="IndexLabel" type="Label" parent="."]
+offset_left = 152.0
+offset_top = 160.0
+offset_right = 302.0
+offset_bottom = 250.0
+theme_override_fonts/font = SubResource("FontVariation_fgq7g")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_fgq7g")
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="NameLabel" type="Label" parent="."]
+offset_left = 360.0
+offset_right = 510.0
+offset_bottom = 90.0
+theme_override_fonts/font = SubResource("FontVariation_fgq7g")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_f5kbm")
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Coin" type="Sprite2D" parent="."]
+position = Vector2(80, 80)
+scale = Vector2(9, 9)
+texture = ExtResource("15_3q564")
+
+[node name="FertilizerBag" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(256, 440)
+scale = Vector2(10, 10)
+texture = ExtResource("14_fr55t")
+
+[node name="ShopButton" type="TextureButton" parent="."]
+offset_left = 16.0
+offset_top = 504.0
+offset_right = 144.0
+offset_bottom = 632.0
+texture_normal = ExtResource("12_c4msi")
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="WaterButton" type="TextureButton" parent="."]
+offset_left = 184.0
+offset_top = 504.0
+offset_right = 256.0
+offset_bottom = 632.0
+texture_normal = ExtResource("17_4fd86")
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="SellButton" type="TextureButton" parent="."]
+offset_left = 1032.0
+offset_top = 480.0
+offset_right = 1136.0
+offset_bottom = 632.0
+texture_normal = ExtResource("18_4yw7j")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="LeftButton" type="TextureButton" parent="."]
+offset_left = 24.0
+offset_top = 280.0
+offset_right = 120.0
+offset_bottom = 376.0
+texture_normal = ExtResource("19_yudwb")
+stretch_mode = 4
+
+[node name="RightButton" type="TextureButton" parent="."]
+offset_left = 1032.0
+offset_top = 280.0
+offset_right = 1128.0
+offset_bottom = 376.0
+texture_normal = ExtResource("20_jmvh5")
+stretch_mode = 4
+
+[node name="FertilizeButton" type="TextureButton" parent="."]
+offset_left = 296.0
+offset_top = 504.0
+offset_right = 440.0
+offset_bottom = 632.0
+texture_normal = ExtResource("14_fr55t")
+stretch_mode = 4
+
+[node name="Options" type="HBoxContainer" parent="."]
+visible = false
+offset_left = 64.0
+offset_top = 576.0
+offset_right = 1088.0
+offset_bottom = 640.0
+theme_override_constants/separation = 85
+
+[node name="Shop" type="Button" parent="Options"]
+custom_minimum_size = Vector2(192, 0)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_gkkow")
+theme_override_styles/hover = SubResource("StyleBoxFlat_d6b7c")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_g633s")
+theme_override_styles/normal = SubResource("StyleBoxFlat_gkkow")
+
+[node name="HorizontalBoxContainer" type="HBoxContainer" parent="Options/Shop"]
+layout_mode = 0
+offset_top = 8.0
+offset_right = 192.0
+offset_bottom = 56.0
+theme_override_constants/separation = 0
+
+[node name="Icon" type="TextureRect" parent="Options/Shop/HorizontalBoxContainer"]
+custom_minimum_size = Vector2(56, 0)
+layout_mode = 2
+texture = ExtResource("12_c4msi")
+stretch_mode = 5
+
+[node name="Text" type="Label" parent="Options/Shop/HorizontalBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_fonts/font = SubResource("FontVariation_rsooy")
+theme_override_font_sizes/font_size = 30
+text = "Shop"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Sell" type="Button" parent="Options"]
+custom_minimum_size = Vector2(192, 0)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_gkkow")
+theme_override_styles/hover = SubResource("StyleBoxFlat_d6b7c")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_g633s")
+theme_override_styles/normal = SubResource("StyleBoxFlat_gkkow")
+
+[node name="HorizontalBoxContainer" type="HBoxContainer" parent="Options/Sell"]
+layout_mode = 0
+offset_top = 8.0
+offset_right = 192.0
+offset_bottom = 56.0
+theme_override_constants/separation = 0
+
+[node name="Icon" type="TextureRect" parent="Options/Sell/HorizontalBoxContainer"]
+custom_minimum_size = Vector2(56, 0)
+layout_mode = 2
+texture = SubResource("CompressedTexture2D_dtq4g")
+stretch_mode = 5
+
+[node name="Text" type="Label" parent="Options/Sell/HorizontalBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_fonts/font = SubResource("FontVariation_rsooy")
+theme_override_font_sizes/font_size = 30
+text = "Sell"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Water" type="Button" parent="Options"]
+custom_minimum_size = Vector2(192, 0)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_gkkow")
+theme_override_styles/hover = SubResource("StyleBoxFlat_d6b7c")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_g633s")
+theme_override_styles/normal = SubResource("StyleBoxFlat_gkkow")
+
+[node name="HorizontalBoxContainer" type="HBoxContainer" parent="Options/Water"]
+layout_mode = 0
+offset_top = 8.0
+offset_right = 192.0
+offset_bottom = 56.0
+theme_override_constants/separation = 0
+
+[node name="Icon" type="TextureRect" parent="Options/Water/HorizontalBoxContainer"]
+custom_minimum_size = Vector2(56, 0)
+layout_mode = 2
+texture = SubResource("CompressedTexture2D_t445f")
+stretch_mode = 5
+
+[node name="Text" type="Label" parent="Options/Water/HorizontalBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_fonts/font = SubResource("FontVariation_rsooy")
+theme_override_font_sizes/font_size = 30
+text = "Water"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Fertilize" type="Button" parent="Options"]
+custom_minimum_size = Vector2(192, 0)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_gkkow")
+theme_override_styles/hover = SubResource("StyleBoxFlat_d6b7c")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_g633s")
+theme_override_styles/normal = SubResource("StyleBoxFlat_gkkow")
+
+[node name="HorizontalBoxContainer" type="HBoxContainer" parent="Options/Fertilize"]
+layout_mode = 0
+offset_top = 8.0
+offset_right = 192.0
+offset_bottom = 56.0
+theme_override_constants/separation = 0
+
+[node name="Icon" type="TextureRect" parent="Options/Fertilize/HorizontalBoxContainer"]
+custom_minimum_size = Vector2(56, 0)
+layout_mode = 2
+texture = ExtResource("14_fr55t")
+stretch_mode = 5
+
+[node name="Text" type="Label" parent="Options/Fertilize/HorizontalBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_fonts/font = SubResource("FontVariation_rsooy")
+theme_override_font_sizes/font_size = 30
+text = "Fertilize"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[connection signal="pressed" from="WaterButton" to="." method="water_plant"]
+[connection signal="pressed" from="SellButton" to="." method="sell_plant"]
+[connection signal="pressed" from="LeftButton" to="." method="_on_direction_button_pressed" binds= [-1]]
+[connection signal="pressed" from="RightButton" to="." method="_on_direction_button_pressed" binds= [1]]
+[connection signal="pressed" from="FertilizeButton" to="." method="_on_fertilize_button_pressed"]

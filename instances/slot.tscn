@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=3 uid="uid://dv4532hpj2rhh"]
+
+[ext_resource type="Texture2D" uid="uid://bmjb2gnfpios1" path="res://sprites/mega_item.png" id="1_ofto2"]
+[ext_resource type="Texture2D" uid="uid://cdsjqx4ng6pqv" path="res://sprites/gui/selected.png" id="2_nt04k"]
+[ext_resource type="FontFile" uid="uid://vfrpe3dkrit5" path="res://fonts/fusion_pixel_10px_monospaced.otf" id="2_ofto2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5173y"]
+
+[node name="Slot" type="Button"]
+texture_filter = 1
+custom_minimum_size = Vector2(56, 56)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5173y")
+flat = true
+
+[node name="SlotTexture" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_right = 56.0
+offset_bottom = 56.0
+texture = ExtResource("1_ofto2")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="SelectedTexture" type="NinePatchRect" parent="SlotTexture"]
+visible = false
+layout_mode = 0
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 57.0
+offset_bottom = 57.0
+texture = ExtResource("2_nt04k")
+region_rect = Rect2(0, 0, 30, 30)
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 12
+
+[node name="ItemTexture" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 12.0
+offset_right = 44.0
+offset_bottom = 44.0
+
+[node name="Label" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 36.0
+offset_top = 32.0
+offset_right = 56.0
+offset_bottom = 56.0
+theme_override_fonts/font = ExtResource("2_ofto2")
+theme_override_font_sizes/font_size = 20
+text = "99"
+horizontal_alignment = 1
+vertical_alignment = 1

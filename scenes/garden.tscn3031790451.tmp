@@ -1,0 +1,517 @@
+[gd_scene load_steps=35 format=3 uid="uid://dsh1mw2yt2ohi"]
+
+[ext_resource type="Script" path="res://scripts/garden.gd" id="1_f5kbm"]
+[ext_resource type="Texture2D" uid="uid://bnormmqc3j21q" path="res://sprites/background.png" id="1_j2bb5"]
+[ext_resource type="Texture2D" uid="uid://dtd3l7c22mreq" path="res://sprites/dialogue_box.png" id="2_21fhi"]
+[ext_resource type="Texture2D" uid="uid://c2i0kt5u8g4xa" path="res://sprites/flower_pot.png" id="3_js7m7"]
+[ext_resource type="FontFile" uid="uid://edyc17vx4lxu" path="res://fonts/Monospaced_Mars_Needs_Cunnilingus.ttf" id="5_21fhi"]
+[ext_resource type="Texture2D" uid="uid://bt30a0jpeooa1" path="res://sprites/watering_can.png" id="5_d0o5p"]
+[ext_resource type="Script" path="res://scripts/highlight.gd" id="8_1diec"]
+[ext_resource type="Texture2D" uid="uid://dhoumawhiwdlm" path="res://sprites/shop.png" id="12_c4msi"]
+[ext_resource type="Texture2D" uid="uid://chktxycwmx8bt" path="res://sprites/gui/left_arrow_down.png" id="12_r88j4"]
+[ext_resource type="FontFile" uid="uid://vfrpe3dkrit5" path="res://fonts/fusion_pixel_10px_monospaced.otf" id="13_llbuk"]
+[ext_resource type="Texture2D" uid="uid://beioe6rbm2k6l" path="res://sprites/fertilizer_bag.png" id="14_fr55t"]
+[ext_resource type="Texture2D" uid="uid://dpwb7fq25jx3n" path="res://sprites/gui/right_arrow_down.png" id="14_j2bb5"]
+[ext_resource type="Texture2D" uid="uid://8gtwejmmdawj" path="res://sprites/coin.png" id="15_3q564"]
+[ext_resource type="Texture2D" uid="uid://brgyj85vujjcd" path="res://sprites/shadow.png" id="16_1mbgh"]
+[ext_resource type="AudioStream" uid="uid://ds30elrrsgx3v" path="res://sounds/bgm_ingame.ogg" id="16_f5kbm"]
+[ext_resource type="Texture2D" uid="uid://cuds2trjt1n5s" path="res://sprites/water_droplet.png" id="17_4fd86"]
+[ext_resource type="Texture2D" uid="uid://b75uv0qdwnsyl" path="res://sprites/dollar_sign.png" id="18_4yw7j"]
+[ext_resource type="Texture2D" uid="uid://bm3wi3atqwurl" path="res://sprites/gui/left_arrow.png" id="19_yudwb"]
+[ext_resource type="Texture2D" uid="uid://18ncw2kmmu8e" path="res://sprites/gui/sign.png" id="20_j2bb5"]
+[ext_resource type="Texture2D" uid="uid://1bbfsxx5c2n1" path="res://sprites/gui/right_arrow.png" id="20_jmvh5"]
+[ext_resource type="Texture2D" uid="uid://cxoqt7qifnsop" path="res://sprites/gui/pause.png" id="20_js7m7"]
+[ext_resource type="Texture2D" uid="uid://bs8xaspkgafh6" path="res://sprites/gui/pause_down.png" id="21_ricac"]
+[ext_resource type="Script" path="res://scripts/hotbar.gd" id="22_d0o5p"]
+[ext_resource type="PackedScene" uid="uid://dukxyyk3oipvj" path="res://instances/item.tscn" id="23_d0o5p"]
+
+[sub_resource type="FontVariation" id="FontVariation_fgq7g"]
+base_font = ExtResource("13_llbuk")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fgq7g"]
+bg_color = Color(0, 0, 0, 0.509804)
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+
+[sub_resource type="FontVariation" id="FontVariation_j2bb5"]
+base_font = ExtResource("5_21fhi")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_a3l3f"]
+lifetime_randomness = 0.01
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(2, 2, 1)
+angle_min = 1.07288e-05
+angle_max = 360.0
+orbit_velocity_min = 9.49949e-08
+orbit_velocity_max = 9.49949e-08
+gravity = Vector3(-9.8, 9.8, 0)
+linear_accel_min = 51.73
+linear_accel_max = 100.0
+scale_min = 5.0
+scale_max = 7.0
+color = Color(0, 1, 1, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gkkow"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d6b7c"]
+bg_color = Color(0, 0, 0, 0.509804)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g633s"]
+bg_color = Color(0, 0, 0, 0.509804)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gkkow"]
+bg_color = Color(0, 0, 0, 0.509804)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="FontVariation" id="FontVariation_rsooy"]
+base_font = ExtResource("13_llbuk")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_js7m7"]
+bg_color = Color(0.351563, 0.351563, 0.351563, 1)
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
+[node name="Garden" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_f5kbm")
+metadata/_edit_vertical_guides_ = [576.0]
+metadata/_edit_horizontal_guides_ = [324.0]
+
+[node name="Pauseable" type="Node2D" parent="."]
+
+[node name="Background" type="TextureRect" parent="Pauseable"]
+texture_filter = 1
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_j2bb5")
+metadata/_edit_use_anchors_ = true
+
+[node name="DialogueBox" type="NinePatchRect" parent="Pauseable"]
+visible = false
+offset_left = 660.0
+offset_top = 107.0
+offset_right = 970.0
+offset_bottom = 307.0
+texture = ExtResource("2_21fhi")
+patch_margin_left = 80
+patch_margin_top = 30
+patch_margin_right = 30
+patch_margin_bottom = 80
+
+[node name="LeftMarker" type="Marker2D" parent="Pauseable"]
+position = Vector2(-157, 372)
+
+[node name="CenterMarker" type="Marker2D" parent="Pauseable"]
+position = Vector2(498, 372)
+
+[node name="RightMarker" type="Marker2D" parent="Pauseable"]
+position = Vector2(1152, 372)
+
+[node name="Sign" type="Sprite2D" parent="Pauseable"]
+position = Vector2(293, 346)
+scale = Vector2(10, 10)
+texture = ExtResource("20_j2bb5")
+
+[node name="CoinsLabel" type="Label" parent="Pauseable"]
+offset_left = 128.0
+offset_top = 35.0
+offset_right = 320.0
+offset_bottom = 125.0
+theme_override_fonts/font = SubResource("FontVariation_fgq7g")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_fgq7g")
+text = "$0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="IndexLabel" type="Label" parent="Pauseable"]
+offset_left = 194.0
+offset_top = 256.0
+offset_right = 403.0
+offset_bottom = 296.0
+theme_override_colors/font_color = Color(0.550781, 0.360724, 0.148453, 1)
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = SubResource("FontVariation_j2bb5")
+theme_override_font_sizes/font_size = 35
+text = "Slot 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+text_overrun_behavior = 3
+uppercase = true
+
+[node name="NameLabel" type="Label" parent="Pauseable"]
+offset_left = 193.0
+offset_top = 296.0
+offset_right = 403.0
+offset_bottom = 346.0
+theme_override_colors/font_color = Color(0.550781, 0.360724, 0.148453, 1)
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = SubResource("FontVariation_j2bb5")
+theme_override_font_sizes/font_size = 35
+text = "Test"
+horizontal_alignment = 1
+vertical_alignment = 1
+text_overrun_behavior = 3
+uppercase = true
+
+[node name="PhaseLabel" type="Label" parent="Pauseable"]
+offset_left = 193.0
+offset_top = 346.0
+offset_right = 403.0
+offset_bottom = 386.0
+theme_override_colors/font_color = Color(0.550781, 0.360724, 0.148453, 1)
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = SubResource("FontVariation_j2bb5")
+theme_override_font_sizes/font_size = 35
+text = "Phase 10"
+horizontal_alignment = 1
+vertical_alignment = 1
+text_overrun_behavior = 3
+uppercase = true
+
+[node name="Coin" type="Sprite2D" parent="Pauseable"]
+position = Vector2(87.25, 80)
+scale = Vector2(9.5, 9)
+texture = ExtResource("15_3q564")
+
+[node name="FertilizerBag" type="Sprite2D" parent="Pauseable"]
+position = Vector2(155, 478)
+scale = Vector2(10, 10)
+texture = ExtResource("14_fr55t")
+
+[node name="ShopButton" type="TextureButton" parent="Pauseable"]
+top_level = true
+texture_filter = 1
+offset_left = 16.0
+offset_top = 504.0
+offset_right = 144.0
+offset_bottom = 632.0
+texture_normal = ExtResource("12_c4msi")
+stretch_mode = 5
+script = ExtResource("8_1diec")
+metadata/_edit_use_anchors_ = true
+
+[node name="WaterButton" type="TextureButton" parent="Pauseable"]
+top_level = true
+texture_filter = 1
+offset_left = 184.0
+offset_top = 504.0
+offset_right = 256.0
+offset_bottom = 632.0
+texture_normal = ExtResource("17_4fd86")
+stretch_mode = 5
+script = ExtResource("8_1diec")
+metadata/_edit_use_anchors_ = true
+
+[node name="SellButton" type="TextureButton" parent="Pauseable"]
+top_level = true
+texture_filter = 1
+offset_left = 1032.0
+offset_top = 480.0
+offset_right = 1136.0
+offset_bottom = 632.0
+texture_normal = ExtResource("18_4yw7j")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("8_1diec")
+metadata/_edit_use_anchors_ = true
+
+[node name="LeftButton" type="TextureButton" parent="Pauseable"]
+top_level = true
+texture_filter = 1
+offset_left = 24.0
+offset_top = 280.0
+offset_right = 120.0
+offset_bottom = 376.0
+texture_normal = ExtResource("19_yudwb")
+texture_pressed = ExtResource("12_r88j4")
+stretch_mode = 4
+script = ExtResource("8_1diec")
+metadata/_edit_use_anchors_ = true
+
+[node name="RightButton" type="TextureButton" parent="Pauseable"]
+top_level = true
+texture_filter = 1
+offset_left = 1032.0
+offset_top = 280.0
+offset_right = 1128.0
+offset_bottom = 376.0
+texture_normal = ExtResource("20_jmvh5")
+texture_pressed = ExtResource("14_j2bb5")
+stretch_mode = 4
+script = ExtResource("8_1diec")
+metadata/_edit_use_anchors_ = true
+
+[node name="FertilizeButton" type="TextureButton" parent="Pauseable"]
+top_level = true
+texture_filter = 1
+offset_left = 296.0
+offset_top = 504.0
+offset_right = 440.0
+offset_bottom = 632.0
+texture_normal = ExtResource("14_fr55t")
+stretch_mode = 4
+script = ExtResource("8_1diec")
+metadata/_edit_use_anchors_ = true
+
+[node name="FlowerPotTest" type="TextureButton" parent="Pauseable"]
+visible = false
+offset_left = 498.0
+offset_top = 372.0
+offset_right = 655.0
+offset_bottom = 504.0
+texture_normal = ExtResource("3_js7m7")
+stretch_mode = 4
+flip_h = true
+metadata/_edit_use_anchors_ = true
+
+[node name="WateringCan" type="Sprite2D" parent="Pauseable/FlowerPotTest"]
+texture_filter = 1
+position = Vector2(334, -52)
+scale = Vector2(12, 12)
+texture = ExtResource("5_d0o5p")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Pauseable/FlowerPotTest/WateringCan"]
+visible = false
+modulate = Color(1, 1, 1, 0.670588)
+position = Vector2(-9.99102, -7.49896)
+amount = 50
+lifetime = 2.0
+preprocess = 3.0
+speed_scale = 5.0
+explosiveness = 0.2
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_a3l3f")
+
+[node name="Shadow" type="Sprite2D" parent="Pauseable/FlowerPotTest"]
+position = Vector2(84, 35.9996)
+scale = Vector2(12, 12.0625)
+texture = ExtResource("16_1mbgh")
+
+[node name="Options" type="HBoxContainer" parent="Pauseable"]
+visible = false
+offset_left = 64.0
+offset_top = 576.0
+offset_right = 1088.0
+offset_bottom = 640.0
+theme_override_constants/separation = 85
+
+[node name="Shop" type="Button" parent="Pauseable/Options"]
+custom_minimum_size = Vector2(192, 0)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_gkkow")
+theme_override_styles/hover = SubResource("StyleBoxFlat_d6b7c")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_g633s")
+theme_override_styles/normal = SubResource("StyleBoxFlat_gkkow")
+
+[node name="HorizontalBoxContainer" type="HBoxContainer" parent="Pauseable/Options/Shop"]
+layout_mode = 0
+offset_top = 8.0
+offset_right = 192.0
+offset_bottom = 56.0
+theme_override_constants/separation = 0
+
+[node name="Icon" type="TextureRect" parent="Pauseable/Options/Shop/HorizontalBoxContainer"]
+custom_minimum_size = Vector2(56, 0)
+layout_mode = 2
+texture = ExtResource("12_c4msi")
+stretch_mode = 5
+
+[node name="Text" type="Label" parent="Pauseable/Options/Shop/HorizontalBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_fonts/font = SubResource("FontVariation_rsooy")
+theme_override_font_sizes/font_size = 30
+text = "Shop"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Sell" type="Button" parent="Pauseable/Options"]
+custom_minimum_size = Vector2(192, 0)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_gkkow")
+theme_override_styles/hover = SubResource("StyleBoxFlat_d6b7c")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_g633s")
+theme_override_styles/normal = SubResource("StyleBoxFlat_gkkow")
+
+[node name="HorizontalBoxContainer" type="HBoxContainer" parent="Pauseable/Options/Sell"]
+layout_mode = 0
+offset_top = 8.0
+offset_right = 192.0
+offset_bottom = 56.0
+theme_override_constants/separation = 0
+
+[node name="Icon" type="TextureRect" parent="Pauseable/Options/Sell/HorizontalBoxContainer"]
+custom_minimum_size = Vector2(56, 0)
+layout_mode = 2
+texture = ExtResource("18_4yw7j")
+stretch_mode = 5
+
+[node name="Text" type="Label" parent="Pauseable/Options/Sell/HorizontalBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_fonts/font = SubResource("FontVariation_rsooy")
+theme_override_font_sizes/font_size = 30
+text = "Sell"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Water" type="Button" parent="Pauseable/Options"]
+custom_minimum_size = Vector2(192, 0)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_gkkow")
+theme_override_styles/hover = SubResource("StyleBoxFlat_d6b7c")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_g633s")
+theme_override_styles/normal = SubResource("StyleBoxFlat_gkkow")
+
+[node name="HorizontalBoxContainer" type="HBoxContainer" parent="Pauseable/Options/Water"]
+layout_mode = 0
+offset_top = 8.0
+offset_right = 192.0
+offset_bottom = 56.0
+theme_override_constants/separation = 0
+
+[node name="Icon" type="TextureRect" parent="Pauseable/Options/Water/HorizontalBoxContainer"]
+custom_minimum_size = Vector2(56, 0)
+layout_mode = 2
+texture = ExtResource("17_4fd86")
+stretch_mode = 5
+
+[node name="Text" type="Label" parent="Pauseable/Options/Water/HorizontalBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_fonts/font = SubResource("FontVariation_rsooy")
+theme_override_font_sizes/font_size = 30
+text = "Water"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Fertilize" type="Button" parent="Pauseable/Options"]
+custom_minimum_size = Vector2(192, 0)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_gkkow")
+theme_override_styles/hover = SubResource("StyleBoxFlat_d6b7c")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_g633s")
+theme_override_styles/normal = SubResource("StyleBoxFlat_gkkow")
+
+[node name="HorizontalBoxContainer" type="HBoxContainer" parent="Pauseable/Options/Fertilize"]
+layout_mode = 0
+offset_top = 8.0
+offset_right = 192.0
+offset_bottom = 56.0
+theme_override_constants/separation = 0
+
+[node name="Icon" type="TextureRect" parent="Pauseable/Options/Fertilize/HorizontalBoxContainer"]
+custom_minimum_size = Vector2(56, 0)
+layout_mode = 2
+texture = ExtResource("14_fr55t")
+stretch_mode = 5
+
+[node name="Text" type="Label" parent="Pauseable/Options/Fertilize/HorizontalBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_fonts/font = SubResource("FontVariation_rsooy")
+theme_override_font_sizes/font_size = 30
+text = "Fertilize"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="WateringCan" type="Sprite2D" parent="Pauseable"]
+texture_filter = 1
+position = Vector2(945, 461)
+scale = Vector2(12, 12)
+texture = ExtResource("5_d0o5p")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Pauseable/WateringCan"]
+visible = false
+modulate = Color(1, 1, 1, 0.670588)
+position = Vector2(-9.99102, -7.49896)
+amount = 50
+lifetime = 2.0
+preprocess = 3.0
+speed_scale = 5.0
+explosiveness = 0.2
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_a3l3f")
+
+[node name="PauseButton" type="TextureButton" parent="Pauseable"]
+offset_left = 1056.0
+offset_top = 16.0
+offset_right = 1128.0
+offset_bottom = 88.0
+texture_normal = ExtResource("20_js7m7")
+texture_pressed = ExtResource("21_ricac")
+stretch_mode = 5
+
+[node name="Hotbar" type="Panel" parent="Pauseable"]
+offset_left = 384.0
+offset_right = 960.0
+offset_bottom = 96.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_js7m7")
+script = ExtResource("22_d0o5p")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Pauseable/Hotbar"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 560.0
+offset_bottom = 80.0
+
+[node name="Button" parent="Pauseable/Hotbar/HBoxContainer" instance=ExtResource("23_d0o5p")]
+layout_mode = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_f5kbm")
+autoplay = true
+bus = &"Music"
+
+[connection signal="button_down" from="Pauseable/ShopButton" to="Pauseable/ShopButton" method="_on_button_down"]
+[connection signal="button_up" from="Pauseable/ShopButton" to="Pauseable/ShopButton" method="_on_button_up"]
+[connection signal="mouse_entered" from="Pauseable/ShopButton" to="Pauseable/ShopButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Pauseable/ShopButton" to="Pauseable/ShopButton" method="_on_mouse_exited"]
+[connection signal="pressed" from="Pauseable/ShopButton" to="." method="_on_shop_button_pressed"]
+[connection signal="button_down" from="Pauseable/WaterButton" to="Pauseable/WaterButton" method="_on_button_down"]
+[connection signal="button_up" from="Pauseable/WaterButton" to="Pauseable/WaterButton" method="_on_button_up"]
+[connection signal="mouse_entered" from="Pauseable/WaterButton" to="Pauseable/WaterButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Pauseable/WaterButton" to="Pauseable/WaterButton" method="_on_mouse_exited"]
+[connection signal="pressed" from="Pauseable/WaterButton" to="." method="water_plant"]
+[connection signal="button_down" from="Pauseable/SellButton" to="Pauseable/SellButton" method="_on_button_down"]
+[connection signal="button_up" from="Pauseable/SellButton" to="Pauseable/SellButton" method="_on_button_up"]
+[connection signal="mouse_entered" from="Pauseable/SellButton" to="Pauseable/SellButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Pauseable/SellButton" to="Pauseable/SellButton" method="_on_mouse_exited"]
+[connection signal="pressed" from="Pauseable/SellButton" to="." method="safe_sell"]
+[connection signal="button_down" from="Pauseable/LeftButton" to="Pauseable/LeftButton" method="_on_button_down"]
+[connection signal="button_up" from="Pauseable/LeftButton" to="Pauseable/LeftButton" method="_on_button_up"]
+[connection signal="mouse_entered" from="Pauseable/LeftButton" to="Pauseable/LeftButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Pauseable/LeftButton" to="Pauseable/LeftButton" method="_on_mouse_exited"]
+[connection signal="pressed" from="Pauseable/LeftButton" to="." method="_on_direction_button_pressed" binds= [-1]]
+[connection signal="button_down" from="Pauseable/RightButton" to="Pauseable/RightButton" method="_on_button_down"]
+[connection signal="button_up" from="Pauseable/RightButton" to="Pauseable/RightButton" method="_on_button_up"]
+[connection signal="mouse_entered" from="Pauseable/RightButton" to="Pauseable/RightButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Pauseable/RightButton" to="Pauseable/RightButton" method="_on_mouse_exited"]
+[connection signal="pressed" from="Pauseable/RightButton" to="." method="_on_direction_button_pressed" binds= [1]]
+[connection signal="button_down" from="Pauseable/FertilizeButton" to="Pauseable/FertilizeButton" method="_on_button_down"]
+[connection signal="button_up" from="Pauseable/FertilizeButton" to="Pauseable/FertilizeButton" method="_on_button_up"]
+[connection signal="mouse_entered" from="Pauseable/FertilizeButton" to="Pauseable/FertilizeButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Pauseable/FertilizeButton" to="Pauseable/FertilizeButton" method="_on_mouse_exited"]
+[connection signal="pressed" from="Pauseable/FertilizeButton" to="." method="_on_fertilize_button_pressed"]

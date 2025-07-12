@@ -1,0 +1,15 @@
+res://instances/cactus.tscn::2b1d04200f18139386d1629bc857b187::1748068367::res://.godot/exported/133200997/export-c2124fd914ebbb517611032a1bd1a1e3-cactus.scn
+res://instances/cactus_alpha.tscn::16ea92c27330ba285d2ad33b2d352f57::1747067656::res://.godot/exported/133200997/export-796b015c42c488c774971ad06e1f29e9-cactus_alpha.scn
+res://instances/confirmation_dialog.tscn::1ffc2db1a73ea3f02b2b5630cc718fdd::1748088019::res://.godot/exported/133200997/export-9eac611b898547a06542de59de471999-confirmation_dialog.scn
+res://instances/enchanted_glowing_particles.tscn::bea8b5e34fe7ec12bf45b7c9ea281038::1748080403::res://.godot/exported/133200997/export-82029e23927c62caaa2600313794ed80-enchanted_glowing_particles.scn
+res://instances/flower_pot.tscn::28b61c61a475789ada52f8c1d109291f::1748080403::res://.godot/exported/133200997/export-b850e9ac6c7c19cfaa68eacf9c4ef620-flower_pot.scn
+res://instances/shopoo_panel.tscn::dc19355bdf0361d87cb35faca3dbf57f::1748088019::res://.godot/exported/133200997/export-fbb55787bdb01a49bce5a429a1902a45-shopoo_panel.scn
+res://particles/enchanted_glowing_particles_material.tres::c66414a3fa68e16c1625f69c3d326db0::1746776552::res://.godot/exported/133200997/export-afbe654c58b233364a824a7b29b0bf81-enchanted_glowing_particles_material.res
+res://particles/enchanted_glowing_particles_process_material.tres::6a7f61ae0f348592d9fa363680971203::1748095793::res://.godot/exported/133200997/export-013645d2e10bce70cde2b692a21c6b6d-enchanted_glowing_particles_process_material.res
+res://scenes/garden.tscn::04b949e97404b2a5b51d65eb01ed2487::1748096292::res://.godot/exported/133200997/export-54a4b1daf2e3419a803aadd17c2fd776-garden.scn
+res://scenes/test.tscn::99adf9e979a12d0ee0abb8ea77aa4925::1748070628::res://.godot/exported/133200997/export-a8ffa8455ee75708b6c34cd8d7888dc7-test.scn
+res://default_bus_layout.tres::b37a3029c6d483f04af06e1328a0938a::1748095782::res://.godot/exported/133200997/export-19246414aa9fb561ced4b8dce477acec-default_bus_layout.res
+res://item.tres::6a34899551621a692dce9d3ce327e651::1747307405::res://.godot/exported/133200997/export-f35fb53d7c36371297395ca46074718d-item.res
+res://instances/eyes.tscn::f0d2c97e33dd85bdc00d974d48561895::1748068367::res://.godot/exported/133200997/export-6fdfc1d8a59b3042c3298f3d338aea01-eyes.scn
+res://instances/slot.tscn::56f6c79440e864962b4e19a319745a46::1747660071::res://.godot/exported/133200997/export-9ffe8d46e9a76d96d5ca53fec85afbd4-slot.scn
+res://instances/user_input.tscn::fcc067f798d956a7299095d8513350e4::1748095904::res://.godot/exported/133200997/export-405473a97c8017a0e7277faeca40921a-user_input.scn
